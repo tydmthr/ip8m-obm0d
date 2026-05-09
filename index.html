@@ -3,289 +3,394 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>豊田元洋 — 地面の下と、まちの表情を整える。</title>
-
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
-<meta name="googlebot" content="noindex, nofollow" />
-<meta name="referrer" content="no-referrer" />
-
-<meta name="description" content="豊田元洋 個人能力カード / Field Notes — 三重県亀山市。" />
-<meta property="og:title" content="豊田元洋 — Field Notes" />
-<meta property="og:description" content="地面の下と、まちの表情を整える。" />
-<meta property="og:type" content="profile" />
-<meta name="theme-color" content="#F5F1E8" />
+<title>豊田元洋 — 地面の下と、まちの表情。</title>
+<meta name="description" content="豊田元洋 個人紹介ページ。水インフラ × 土木 × 地域 × 奇景。三重県亀山市。" />
+<meta property="og:title" content="豊田元洋 — 地面の下と、まちの表情。" />
+<meta property="og:description" content="水インフラ × 土木 × 地域 × 奇景。三重県亀山市。" />
+<meta property="og:type" content="website" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600;700&family=Fraunces:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+    --jp:   "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+    --jp-display: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
+    --jp-serif: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+
+    --red:   #E63B19;
+    --blu:   #1845C7;
+    --yel:   #FFC200;
+    --ink:   #0A0A0A;
+    --ppr:   #EFE9DA;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--jp);
+    color: var(--ink);
+    background: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* The design is built at 1080px wide. On larger viewports we cap it,
+     on smaller ones we use a CSS scale so layout never reflows. */
+  .stage {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--ink);
+    overflow-x: hidden;
+  }
+  .frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1080px;
+    transform-origin: top left;
+  }
+
+  /* Scale down for narrower viewports. We use viewport-clamped scale via
+     a CSS custom prop set by JS for accuracy. Fallback: media-query scale. */
+  @media (max-width: 1080px) {
+    .frame { transform: scale(var(--page-scale, 1)); }
+    .stage { padding-bottom: 0; }
+  }
+
+  /* keep links no-underline, we style cards individually */
+  a { text-decoration: none; color: inherit; }
+
+  /* Tappable cards — soft press effect */
+  .tap {
+    transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+  }
+  .tap:hover { transform: translateY(-2px); }
+  .tap:active { transform: translateY(0); opacity: 0.92; }
+
+  /* QR card hover lift */
+  .qr-card:hover {
+    box-shadow: 0 8px 22px rgba(0,0,0,0.28);
+  }
+
+  /* Skip link */
+  .skip {
+    position: absolute; left: -9999px;
+    background: var(--yel); color: var(--ink);
+    padding: 8px 14px; font-family: var(--mono); font-size: 12px;
+  }
+  .skip:focus { left: 8px; top: 8px; z-index: 9999; }
+
+  @media print {
+    html, body, .stage { background: var(--ppr) !important; }
+    .frame { transform: none !important; }
+  }
+</style>
 </head>
 <body>
+<template id="__bundler_thumbnail" data-bg-color="#EFE9DA">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#EFE9DA"/>
+    <rect x="0" y="0" width="400" height="80" fill="#E63B19"/>
+    <rect x="400" y="0" width="400" height="80" fill="#FFC200"/>
+    <rect x="800" y="0" width="400" height="80" fill="#1845C7"/>
+    <rect x="0" y="80" width="1200" height="8" fill="#0A0A0A"/>
+    <circle cx="950" cy="320" r="180" fill="#FFC200"/>
+    <polygon points="700,420 820,620 580,620" fill="#E63B19"/>
+    <rect x="80" y="640" width="320" height="60" fill="#1845C7"/>
+    <text x="80" y="380" font-family="sans-serif" font-weight="900" font-size="160" fill="#0A0A0A">地面の</text>
+    <text x="80" y="540" font-family="sans-serif" font-weight="900" font-size="160" fill="#0A0A0A">下と。</text>
+  </svg>
+</template>
+<a href="#main" class="skip">本文へスキップ</a>
+<div class="stage">
+  <div class="frame" id="frame">
+    <main id="main">
 
-<div class="wrap">
+      <!-- Geometric masthead -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:8px solid var(--ink);">
+        <div style="background:var(--red);height:80px;"></div>
+        <div style="background:var(--yel);height:80px;display:grid;place-items:center;font-family:var(--mono);font-size:12px;letter-spacing:0.25em;">TOYODA / BAUHAUS / 01</div>
+        <div style="background:var(--blu);height:80px;position:relative;">
+          <div style="position:absolute;right:0;bottom:0;width:80px;height:80px;border-radius:50% 0 0 0;background:var(--ink);"></div>
+        </div>
+      </div>
 
-  <!-- ── MASTHEAD ── -->
-  <div class="masthead">
-    <div>Toyoda Motohiro · Field Notes</div>
-    <div class="right">NO. 01 — KAMEYAMA / MIE</div>
+      <!-- HERO -->
+      <section style="background:var(--ppr);color:var(--ink);padding:40px 36px 48px;position:relative;overflow:hidden;">
+        <div style="position:absolute;right:-60px;top:30px;width:320px;height:320px;border-radius:50%;background:var(--yel);z-index:0;"></div>
+        <div style="position:absolute;right:80px;top:200px;width:0;height:0;border-left:120px solid transparent;border-right:120px solid transparent;border-bottom:200px solid var(--red);z-index:1;"></div>
+        <div style="position:absolute;left:36px;top:360px;width:220px;height:60px;background:var(--blu);z-index:1;"></div>
+
+        <div style="position:relative;z-index:2;">
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.3em;margin-bottom:14px;background:var(--ink);color:var(--ppr);padding:4px 10px;display:inline-block;">NO. 01 — KAMEYAMA</div>
+          <h1 style="font-family:var(--jp-display);font-weight:900;font-size:168px;line-height:0.86;letter-spacing:-0.05em;margin:0;">
+            地面の<br/>下と、<br/>まちの<br/>表情。
+          </h1>
+          <div style="margin-top:36px;font-family:var(--jp-serif);font-size:30px;font-weight:800;">豊田 元洋</div>
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:0.22em;">TOYODA · MOTOHIRO</div>
+        </div>
+      </section>
+
+      <!-- Big black band -->
+      <div style="background:var(--ink);color:var(--ppr);padding:36px;border-top:8px solid var(--ink);">
+        <div style="font-family:var(--jp-serif);font-size:36px;font-weight:800;line-height:1.4;">
+          <span style="background:var(--yel);color:var(--ink);padding:0 10px;">水インフラ</span> ×
+          <span style="background:var(--red);color:var(--ppr);padding:0 10px;">土木</span> ×
+          <span style="background:var(--blu);color:var(--ppr);padding:0 10px;">地域</span> ×
+          <span style="border:2px solid var(--ppr);padding:0 10px;">奇景</span>
+        </div>
+      </div>
+
+      <!-- §01 CAPACITY -->
+      <section style="background:var(--ppr);padding:48px 36px 64px;">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;margin-bottom:20px;">§ 01 / CAPACITY</div>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;">
+
+          <div style="background:var(--blu);color:var(--ppr);padding:24px 22px 28px;min-height:240px;position:relative;overflow:hidden;border-right:4px solid var(--ink);border-bottom:4px solid var(--ink);">
+            <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;opacity:0.9;">WATER / 01</div>
+            <div style="font-family:var(--jp-serif);font-weight:800;font-size:28px;margin-top:8px;line-height:1.2;">水インフラ維持管理</div>
+            <div style="font-size:13px;line-height:1.85;margin-top:10px;max-width:360px;position:relative;z-index:2;">下水道関連施設の維持管理。点検・清掃・修繕の段取りで、まちの当たり前を下から支える。</div>
+            <div style="position:absolute;right:-30px;bottom:-30px;width:160px;height:160px;border-radius:50%;background:var(--ppr);opacity:0.18;"></div>
+          </div>
+
+          <div style="background:var(--red);color:var(--ppr);padding:24px 22px 28px;min-height:240px;position:relative;overflow:hidden;border-bottom:4px solid var(--ink);">
+            <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;opacity:0.9;">CIVIL / 02</div>
+            <div style="font-family:var(--jp-serif);font-weight:800;font-size:28px;margin-top:8px;line-height:1.2;">土木・建設業</div>
+            <div style="font-size:13px;line-height:1.85;margin-top:10px;max-width:360px;position:relative;z-index:2;">公共工事の段取り、安全管理。一級土木施工管理技士として、現場と書類の両輪を回す。</div>
+            <div style="position:absolute;right:20px;bottom:20px;width:90px;height:90px;background:var(--ppr);opacity:0.18;"></div>
+          </div>
+
+          <div style="background:var(--yel);color:var(--ink);padding:24px 22px 28px;min-height:240px;position:relative;overflow:hidden;border-right:4px solid var(--ink);">
+            <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;opacity:0.9;">LOCAL / 03</div>
+            <div style="font-family:var(--jp-serif);font-weight:800;font-size:28px;margin-top:8px;line-height:1.2;">地域プロジェクト</div>
+            <div style="font-size:13px;line-height:1.85;margin-top:10px;max-width:360px;position:relative;z-index:2;">スケートパーク・関宿納涼花火大会の段取り。亀山のまちで、人が集まる仕掛けをつくる。</div>
+            <div style="position:absolute;right:20px;bottom:0;width:0;height:0;border-left:70px solid transparent;border-right:70px solid transparent;border-bottom:120px solid var(--ink);opacity:0.25;"></div>
+          </div>
+
+          <div style="background:var(--ink);color:var(--ppr);padding:24px 22px 28px;min-height:240px;position:relative;overflow:hidden;">
+            <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;opacity:0.9;">WEIRD / 04</div>
+            <div style="font-family:var(--jp-serif);font-weight:800;font-size:28px;margin-top:8px;line-height:1.2;">サブカルチャー</div>
+            <div style="font-size:13px;line-height:1.85;margin-top:10px;max-width:360px;position:relative;z-index:2;">Bizarre Japan の運営。日本各地の奇景・珍スポットを採集し、英語圏に向けて発信。</div>
+            <div style="position:absolute;right:-40px;bottom:-40px;width:160px;height:160px;border-radius:50% 0 0 0;background:var(--red);opacity:0.7;"></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- §02 THE WORK — single big poster photo -->
+      <section style="background:var(--ppr);padding:0 0 64px;">
+        <div style="padding:0 36px;margin-bottom:16px;font-family:var(--mono);font-size:11px;letter-spacing:0.2em;">§ 02 / THE WORK</div>
+        <div style="position:relative;height:460px;overflow:hidden;border-top:6px solid var(--ink);border-bottom:6px solid var(--ink);">
+          <img src="assets/photo-control.jpg" alt="制御盤" style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.2) contrast(1.1);" />
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(24,69,199,0.35) 0%, transparent 50%, rgba(230,59,25,0.25) 100%);"></div>
+          <div style="position:absolute;left:36px;bottom:36px;font-family:var(--jp-serif);font-weight:800;font-size:64px;color:var(--ppr);line-height:1.05;text-shadow:4px 4px 0 var(--ink);">
+            止めない、<br/>という仕事。
+          </div>
+          <div style="position:absolute;right:36px;top:36px;background:var(--yel);color:var(--ink);padding:6px 14px;font-family:var(--mono);font-size:12px;letter-spacing:0.18em;">FIG. 01 / 制御盤</div>
+        </div>
+        <div style="padding:24px 36px 0;font-family:var(--jp);font-size:14px;line-height:2.0;column-count:2;column-gap:32px;">
+          下水道関連施設の維持管理を軸に、土木・建設業まで。一級土木施工管理技士、浄化槽管理士、きのこ検定 3級。有限会社 豊田衛生 取締役。三重県亀山市阿野田町。見えにくい現場の段取りが、まちの当たり前を下から支えている。
+        </div>
+      </section>
+
+      <!-- §03 LOCAL -->
+      <section style="padding:48px 36px 64px;background:var(--ink);color:var(--ppr);">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;color:var(--yel);margin-bottom:20px;">§ 03 / LOCAL · TAP TO VISIT</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+
+          <a class="tap local-card" href="https://www.instagram.com/kameyama_skatepark/" target="_blank" rel="noopener noreferrer" style="color:var(--ink);background:var(--yel);border:4px solid var(--ppr);display:block;">
+            <div style="height:220px;background:var(--ppr);overflow:hidden;">
+              <img src="assets/logo-skatepark.png" alt="SKATEPARK" style="width:100%;height:100%;object-fit:contain;padding:14px;" />
+            </div>
+            <div style="padding:12px 14px;">
+              <div style="font-family:var(--jp-serif);font-weight:800;font-size:18px;">亀山スケートボードパーク</div>
+              <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;margin-top:4px;display:flex;justify-content:space-between;">
+                <span>SKATEPARK</span><span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="tap local-card" href="https://bizarrejapan.com/" target="_blank" rel="noopener noreferrer" style="color:var(--ppr);background:var(--red);border:4px solid var(--ppr);display:block;">
+            <div style="height:220px;background:var(--ppr);overflow:hidden;">
+              <img src="assets/logo-bizarre.png" alt="BIZARRE" style="width:100%;height:100%;object-fit:contain;padding:14px;" />
+            </div>
+            <div style="padding:12px 14px;">
+              <div style="font-family:var(--jp-serif);font-weight:800;font-size:18px;">Bizarre Japan</div>
+              <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;margin-top:4px;display:flex;justify-content:space-between;">
+                <span>BIZARRE</span><span>↗</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="tap local-card" href="https://kameyama-yeg.jp/" target="_blank" rel="noopener noreferrer" style="color:var(--ppr);background:var(--blu);border:4px solid var(--ppr);display:block;">
+            <div style="height:220px;background:#000;overflow:hidden;">
+              <img src="assets/photo-hanabi.jpg" alt="HANABI" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div style="padding:12px 14px;">
+              <div style="font-family:var(--jp-serif);font-weight:800;font-size:18px;">関宿納涼花火大会</div>
+              <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;margin-top:4px;display:flex;justify-content:space-between;">
+                <span>HANABI</span><span>↗</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- §04 INDEX -->
+      <section style="background:var(--ppr);padding:48px 36px;">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;margin-bottom:20px;">§ 04 / INDEX</div>
+        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:0;">
+
+          <div style="aspect-ratio:1/1;position:relative;overflow:hidden;border-right:2px solid var(--ink);">
+            <img src="assets/photo-cactus.jpg" alt="AGAVE" style="width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:#3F8E4D;mix-blend-mode:multiply;opacity:0.55;"></div>
+            <div style="position:absolute;left:0;bottom:0;right:0;padding:8px 10px;color:var(--ppr);">
+              <div style="font-family:var(--jp-serif);font-weight:800;font-size:14px;">植物</div>
+              <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.2em;">AGAVE</div>
+            </div>
+          </div>
+
+          <div style="aspect-ratio:1/1;position:relative;overflow:hidden;border-right:2px solid var(--ink);">
+            <img src="assets/photo-cats.jpg" alt="CATS" style="width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:var(--red);mix-blend-mode:multiply;opacity:0.55;"></div>
+            <div style="position:absolute;left:0;bottom:0;right:0;padding:8px 10px;color:var(--ppr);">
+              <div style="font-family:var(--jp-serif);font-weight:800;font-size:14px;">猫</div>
+              <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.2em;">CATS</div>
+            </div>
+          </div>
+
+          <div style="aspect-ratio:1/1;position:relative;overflow:hidden;border-right:2px solid var(--ink);">
+            <img src="assets/photo-poker.jpg" alt="POKER" style="width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:var(--ink);mix-blend-mode:multiply;opacity:0.55;"></div>
+            <div style="position:absolute;left:0;bottom:0;right:0;padding:8px 10px;color:var(--ppr);">
+              <div style="font-family:var(--jp-serif);font-weight:800;font-size:14px;">ポーカー</div>
+              <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.2em;">POKER</div>
+            </div>
+          </div>
+
+          <div style="aspect-ratio:1/1;position:relative;overflow:hidden;border-right:2px solid var(--ink);">
+            <img src="assets/photo-music.jpg" alt="MUSIC" style="width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:var(--blu);mix-blend-mode:multiply;opacity:0.55;"></div>
+            <div style="position:absolute;left:0;bottom:0;right:0;padding:8px 10px;color:var(--ppr);">
+              <div style="font-family:var(--jp-serif);font-weight:800;font-size:14px;">音楽</div>
+              <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.2em;">MUSIC</div>
+            </div>
+          </div>
+
+          <div style="aspect-ratio:1/1;position:relative;overflow:hidden;border-right:2px solid var(--ink);">
+            <img src="assets/photo-camera.jpg" alt="PHOTO" style="width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:var(--yel);mix-blend-mode:multiply;opacity:0.55;"></div>
+            <div style="position:absolute;left:0;bottom:0;right:0;padding:8px 10px;color:var(--ink);">
+              <div style="font-family:var(--jp-serif);font-weight:800;font-size:14px;">写真</div>
+              <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.2em;">PHOTO</div>
+            </div>
+          </div>
+
+          <div style="aspect-ratio:1/1;position:relative;overflow:hidden;">
+            <img src="assets/photo-antique.jpg" alt="ANTIQ" style="width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:#7A4A2A;mix-blend-mode:multiply;opacity:0.55;"></div>
+            <div style="position:absolute;left:0;bottom:0;right:0;padding:8px 10px;color:var(--ppr);">
+              <div style="font-family:var(--jp-serif);font-weight:800;font-size:14px;">骨董</div>
+              <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.2em;">ANTIQ</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- §05 CONTACT -->
+      <section style="padding:48px 36px 56px;background:var(--red);color:var(--ppr);border-top:8px solid var(--ink);">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;color:var(--yel);margin-bottom:14px;">§ 05 / CONTACT</div>
+        <h2 style="font-family:var(--jp-serif);font-weight:800;font-size:80px;line-height:0.95;margin:0 0 18px;">
+          一滴の水から、<br/>まちを保つ。
+        </h2>
+        <div style="font-family:var(--mono);font-size:12px;line-height:2.0;margin-bottom:24px;">
+          〒519-0137 三重県亀山市阿野田町 1870 / TEL <a href="tel:0595821738" style="color:inherit;border-bottom:1px solid currentColor;">0595-82-1738</a> / <a href="mailto:m.toyoda@toyodaeisei.com" style="color:inherit;border-bottom:1px solid currentColor;">m.toyoda@toyodaeisei.com</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:4px solid var(--ink);">
+
+          <a class="tap qr-card" href="https://line.me/ti/p/bozKtC4JLQ" target="_blank" rel="noopener noreferrer" style="background:#06C755;color:var(--ppr);padding:14px;display:flex;flex-direction:column;gap:10px;border-right:4px solid var(--ink);">
+            <div style="aspect-ratio:1/1;background:#fff;overflow:hidden;">
+              <img src="assets/qr-line.jpg" alt="LINE" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;">LINE</div>
+              <div style="font-family:var(--jp-serif);font-weight:700;font-size:14px;">友だち追加 ↗</div>
+            </div>
+          </a>
+
+          <a class="tap qr-card" href="https://www.instagram.com/tydmthr" target="_blank" rel="noopener noreferrer" style="background:var(--yel);color:var(--ink);padding:14px;display:flex;flex-direction:column;gap:10px;border-right:4px solid var(--ink);">
+            <div style="aspect-ratio:1/1;background:#fff;overflow:hidden;">
+              <img src="assets/qr-instagram.png" alt="INSTAGRAM" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;">INSTAGRAM</div>
+              <div style="font-family:var(--jp-serif);font-weight:700;font-size:14px;">@TYDMTHR ↗</div>
+            </div>
+          </a>
+
+          <a class="tap qr-card" href="https://8card.net/virtual_cards/jRRmYnwkZTZOoOD0BuOUlA" target="_blank" rel="noopener noreferrer" style="background:var(--blu);color:var(--ppr);padding:14px;display:flex;flex-direction:column;gap:10px;border-right:4px solid var(--ink);">
+            <div style="aspect-ratio:1/1;background:#fff;overflow:hidden;">
+              <img src="assets/qr-eight.png" alt="EIGHT" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;">EIGHT</div>
+              <div style="font-family:var(--jp-serif);font-weight:700;font-size:14px;">デジタル名刺 ↗</div>
+            </div>
+          </a>
+
+          <a class="tap qr-card" href="https://note.com/asaichi" target="_blank" rel="noopener noreferrer" style="background:var(--ink);color:var(--ppr);padding:14px;display:flex;flex-direction:column;gap:10px;">
+            <div style="aspect-ratio:1/1;background:#fff;overflow:hidden;">
+              <img src="assets/qr-note.png" alt="NOTE" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div>
+              <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;">NOTE</div>
+              <div style="font-family:var(--jp-serif);font-weight:700;font-size:14px;">記事を読む ↗</div>
+            </div>
+          </a>
+
+        </div>
+        <div style="margin-top:24px;font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-align:center;">© TOYODA · BAUHAUS POSTER NO.01 · 2026</div>
+      </section>
+
+    </main>
   </div>
-
-  <!-- ── HERO ── -->
-  <section class="hero">
-    <div class="lede">No. 01 &nbsp;—&nbsp; A man who tends what is below, and what is on the surface.</div>
-    <h1>地面の下と、<br/>まちの表情を整える。</h1>
-    <div class="meta">
-      <div>
-        <span class="name">豊田 元洋</span>
-        <span class="name-en">TOYODA MOTOHIRO</span>
-      </div>
-      <div class="role">水インフラ維持管理 &nbsp;/&nbsp; まちづくり実践者 &nbsp;·&nbsp; 三重県亀山市</div>
-    </div>
-  </section>
-
-  <!-- ── ABSTRACT ── -->
-  <section class="abstract">
-    <div class="label">Abstract</div>
-    <p>
-      下水道関連施設の維持管理を軸に、土木・建設業、地域プロジェクトの実行支援まで。
-      見えないインフラを丁寧に保ちながら、亀山スケートボードパーク・Bizarre Japan・亀山市関宿納涼花火大会など、
-      まちの「見える文化」にも手を動かしている。一滴の水から、まちを保つ。
-    </p>
-    <div class="colophon">
-      BASED IN<br/>
-      <b>三重県亀山市</b><br/><br/>
-      AFFILIATION<br/>
-      <b>有限会社 豊田衛生</b><br/>
-      <span style="font-size:10px;">取締役</span>
-    </div>
-  </section>
-
-  <!-- ── §01 CAPACITIES ── -->
-  <section class="capacities">
-    <div class="sechead">
-      <span class="secno num">§ 01</span>
-      <h2>能力カード</h2>
-      <span class="line"></span>
-      <span class="en">Capacities</span>
-    </div>
-    <div class="cap-grid">
-      <div class="cap-card">
-        <div class="n">01</div>
-        <div class="en">Water Infrastructure</div>
-        <div class="jp">水インフラ維持管理</div>
-        <p>下水道関連施設の維持管理。制御盤・ポンプ・配管の点検と段取り。</p>
-      </div>
-      <div class="cap-card">
-        <div class="n">02</div>
-        <div class="en">Civil &amp; Construction</div>
-        <div class="jp">土木・建設業</div>
-        <p>公共工事の段取り、車両装備、夜間運営、誘導・安全管理。</p>
-      </div>
-      <div class="cap-card">
-        <div class="n">03</div>
-        <div class="en">Local Execution</div>
-        <div class="jp">地域プロジェクト実行</div>
-        <p>スケートパーク構想、亀山市関宿納涼花火大会など、まちの行事の段取り。</p>
-      </div>
-      <div class="cap-card">
-        <div class="n">04</div>
-        <div class="en">Subculture</div>
-        <div class="jp">サブカルチャー運営</div>
-        <p>Bizarre Japan の運営。日本の奇景・奇習を採集し、海外へ発信。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── §02 WORK ── -->
-  <section class="work">
-    <div class="sechead">
-      <span class="secno num">§ 02</span>
-      <h2>仕事</h2>
-      <span class="line"></span>
-      <span class="en">The Work · Below the Surface</span>
-    </div>
-
-    <div class="photos">
-      <div class="ph">
-        <img src="assets/photo-control.jpg" alt="制御盤確認" />
-        <span class="cap">PHOTO 02 · 制御盤確認</span>
-        <span class="fn">img_0858.jpg</span>
-      </div>
-      <div class="stack">
-        <div class="ph">
-          <img src="assets/photo-truck.jpg" alt="作業車両" />
-          <span class="cap">PHOTO 03 · 作業車両</span>
-          <span class="fn">img_8670.jpg</span>
-        </div>
-        <div class="ph">
-          <img src="assets/photo-night.jpg" alt="夜間作業" />
-          <span class="cap">PHOTO 04 · 夜間作業</span>
-          <span class="fn">img_8576.jpg</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="body">
-      <div>
-        <div class="label">SUBJECT</div>
-        <h3>一滴の水から、まちを保つ。</h3>
-        <p>
-          下水道関連施設は、止まらないことが価値。
-          制御盤の小さな異音、流量の変化、夜間の誘導旗ひとつ。
-          見えにくい現場の段取りが、まちの当たり前を下から支えている。
-        </p>
-      </div>
-      <dl>
-        <div class="row"><dt>SCOPE</dt><dd>下水道関連施設 維持管理</dd></div>
-        <div class="row"><dt>FIELD</dt><dd>土木・公共インフラ</dd></div>
-        <div class="row"><dt>QUALIFIED</dt><dd>一級土木施工管理技士<br/>浄化槽管理士<br/>きのこ検定 3級</dd></div>
-        <div class="row"><dt>AFFILIATION</dt><dd>有限会社 豊田衛生</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- ── §03 LOCAL ── -->
-  <section class="local">
-    <div class="sechead">
-      <span class="secno num">§ 03</span>
-      <h2>地域</h2>
-      <span class="line"></span>
-      <span class="en">In the town · On the Surface</span>
-    </div>
-    <div class="local-grid">
-      <div class="local-card">
-        <div class="ph contain">
-          <img src="assets/logo-skatepark.png" alt="Kameyama Skatepark Project" />
-          <span class="cap">LOGO · Kameyama Skatepark</span>
-        </div>
-        <div class="jp">亀山スケートボードパークプロジェクト</div>
-        <div class="en">Kameyama Skatepark Project</div>
-      </div>
-      <div class="local-card">
-        <div class="ph contain">
-          <img src="assets/logo-bizarre.png" alt="Bizarre Japan" />
-          <span class="cap">LOGO · Bizarre Japan</span>
-        </div>
-        <div class="jp">Bizarre Japan 運営</div>
-        <div class="en">Bizarre Japan</div>
-      </div>
-      <div class="local-card">
-        <div class="ph">
-          <img src="assets/photo-hanabi.jpg" alt="関宿の夜" />
-          <span class="cap">PHOTO 07 · 関宿の夜</span>
-          <span class="fn">img_hanabi.jpg</span>
-        </div>
-        <div class="jp">亀山市関宿納涼花火大会</div>
-        <div class="en">Sekijuku Hanabi</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── §04 INDEX ── -->
-  <section class="idx">
-    <div class="sechead">
-      <span class="secno num">§ 04</span>
-      <h2>個人の索引</h2>
-      <span class="line"></span>
-      <span class="en">Personal Index</span>
-    </div>
-    <div class="idx-grid">
-      <div class="idx-row">
-        <div class="ph"><img src="assets/photo-cactus.jpg" alt="アガベ" style="object-position:center 70%;" /></div>
-        <div><div class="jp">植物 / アガベ</div><div class="en">Agave &amp; house plants</div></div>
-      </div>
-      <div class="idx-row">
-        <div class="ph"><img src="assets/photo-cats.jpg" alt="猫" /></div>
-        <div><div class="jp">猫</div><div class="en">Cats</div></div>
-      </div>
-      <div class="idx-row">
-        <div class="ph"><img src="assets/photo-poker.jpg" alt="ポーカー" /></div>
-        <div><div class="jp">ポーカー</div><div class="en">Poker</div></div>
-      </div>
-      <div class="idx-row">
-        <div class="ph"><img src="assets/photo-music.jpg" alt="音楽 / フェス" /></div>
-        <div><div class="jp">音楽 / フェス</div><div class="en">Music &amp; festivals</div></div>
-      </div>
-      <div class="idx-row">
-        <div class="ph"><img src="assets/photo-camera.jpg" alt="写真" /></div>
-        <div><div class="jp">写真</div><div class="en">Photography</div></div>
-      </div>
-      <div class="idx-row">
-        <div class="ph"><img src="assets/photo-antique.jpg" alt="アンティーク" style="object-position:center 30%;" /></div>
-        <div><div class="jp">アンティーク</div><div class="en">Antiques &amp; figures</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── §05 CONTACT ── -->
-  <section class="contact">
-    <div class="sechead">
-      <span class="secno num">§ 05</span>
-      <h2>連絡先</h2>
-      <span class="line"></span>
-      <span class="en">Get in touch</span>
-    </div>
-
-    <div class="contact-top">
-      <div>
-        <div class="contact-tag">一滴の水から、<br/>まちを保つ。</div>
-        <div class="contact-addr">
-          〒519-0137  三重県亀山市阿野田町 1870<br/>
-          TEL  <a href="tel:0595821738">0595-82-1738</a> &nbsp;·&nbsp; FAX  0595-82-0173<br/>
-          FREE  <a href="tel:0120713718">0120-713-718</a><br/>
-          <a href="mailto:m.toyoda@toyodaeisei.com">m.toyoda@toyodaeisei.com</a><br/>
-          <a href="https://toyodaeisei.com" target="_blank" rel="noopener">toyodaeisei.com</a>
-        </div>
-      </div>
-      <div class="contact-colo">
-        <div class="label">Colophon</div>
-        <div class="row"><span>NAME</span><span>豊田 元洋 / Toyoda Motohiro</span></div>
-        <div class="row"><span>ROLE</span><span>取締役</span></div>
-        <div class="row"><span>QUALIFIED</span><span>一級土木施工管理技士 / 浄化槽管理士 / きのこ検定 3級</span></div>
-        <div class="row"><span>BASED</span><span>三重県亀山市</span></div>
-        <div class="row"><span>EDITION</span><span style="font-family:var(--mono);">FIELD NOTES NO. 01</span></div>
-      </div>
-    </div>
-
-    <div class="qr-grid">
-      <div class="qr-card">
-        <div class="qr-img"><img src="assets/qr-line.jpg" alt="LINE QR" /></div>
-        <div>
-          <div class="k">LINE</div>
-          <div class="v">友だち追加</div>
-        </div>
-      </div>
-      <div class="qr-card">
-        <div class="qr-img"><img src="assets/qr-instagram.png" alt="Instagram QR" /></div>
-        <div>
-          <div class="k">INSTAGRAM</div>
-          <div class="v mono">@TYDMTHR</div>
-        </div>
-      </div>
-      <div class="qr-card">
-        <div class="qr-img"><img src="assets/qr-eight.png" alt="Eight QR" /></div>
-        <div>
-          <div class="k">EIGHT</div>
-          <div class="v">デジタル名刺</div>
-        </div>
-      </div>
-      <div class="qr-card">
-        <div class="qr-img"><img src="assets/qr-note.png" alt="note QR" /></div>
-        <div>
-          <div class="k">NOTE</div>
-          <div class="v">記事を読む</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="colophon-bar">
-      <span>© TOYODA MOTOHIRO · 2026</span>
-      <span>FIELD NOTES NO. 01 — KAMEYAMA, MIE</span>
-      <span>一滴の水から、まちを保つ。</span>
-    </div>
-  </section>
-
 </div>
 
+<script>
+  // Scale the 1080-wide design down to fit narrower viewports without
+  // reflowing layout. Stage gets the scaled height so scrollbars stay tidy.
+  (function(){
+    var frame = document.getElementById('frame');
+    var stage = document.querySelector('.stage');
+    if (!frame || !stage) return;
+    function fit() {
+      var vw = document.documentElement.clientWidth;
+      var scale = Math.min(1, vw / 1080);
+      frame.style.setProperty('--page-scale', scale);
+      // The frame is absolutely positioned and transform doesn't affect
+      // layout, so we have to size the stage explicitly to the scaled height.
+      // offsetHeight gives the unscaled layout height; multiply by scale.
+      var natural = frame.offsetHeight;
+      var scaled = natural * scale;
+      stage.style.height = Math.max(scaled, window.innerHeight) + 'px';
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    // Re-fit after fonts load (heights shift slightly).
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fit);
+    }
+    // And after all images load.
+    window.addEventListener('load', fit);
+  })();
+</script>
 </body>
 </html>
