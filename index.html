@@ -115,7 +115,7 @@
       <!-- Geometric masthead -->
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:8px solid var(--ink);">
         <div style="background:var(--red);height:80px;"></div>
-        <div style="background:var(--yel);height:80px;display:grid;place-items:center;font-family:var(--mono);font-size:12px;letter-spacing:0.25em;">TOYODA / BAUHAUS / 01</div>
+        <div style="background:var(--yel);height:80px;"></div>
         <div style="background:var(--blu);height:80px;position:relative;">
           <div style="position:absolute;right:0;bottom:0;width:80px;height:80px;border-radius:50% 0 0 0;background:var(--ink);"></div>
         </div>
@@ -183,124 +183,137 @@
         </div>
       </section>
 
-      <!-- §02 THE WORK — single big poster photo -->
+      <!-- §02 THE WORK — photo with translucent title plate -->
       <section style="background:var(--ppr);padding:0 0 64px;">
         <div style="padding:0 36px;margin-bottom:16px;font-family:var(--mono);font-size:11px;letter-spacing:0.2em;">§ 02 / THE WORK</div>
-        <div style="position:relative;height:460px;overflow:hidden;border-top:6px solid var(--ink);border-bottom:6px solid var(--ink);">
-          <img src="assets/photo-control.jpg" alt="制御盤" style="width:100%;height:100%;object-fit:cover;filter:grayscale(0.2) contrast(1.1);" />
-          <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(24,69,199,0.35) 0%, transparent 50%, rgba(230,59,25,0.25) 100%);"></div>
-          <div style="position:absolute;left:36px;bottom:36px;font-family:var(--jp-serif);font-weight:800;font-size:64px;color:var(--ppr);line-height:1.05;text-shadow:4px 4px 0 var(--ink);">
-            止めない、<br/>という仕事。
+        <div style="position:relative;height:520px;overflow:hidden;border-top:6px solid var(--ink);border-bottom:6px solid var(--ink);">
+          <img src="assets/photo-control.jpg" alt="制御盤" style="width:100%;height:100%;object-fit:cover;" />
+          <!-- Soft top-left vignette so the plate has more contrast -->
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.15) 45%, transparent 70%);"></div>
+          <!-- Translucent black plate behind the title -->
+          <div style="position:absolute;left:0;top:36px;background:rgba(10,10,10,0.62);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);padding:24px 40px 28px 36px;border-right:6px solid var(--yel);">
+            <div style="font-family:var(--jp-serif);font-weight:800;font-size:80px;color:var(--ppr);line-height:1.0;">
+              止めない、<br/>という仕事。
+            </div>
           </div>
           <div style="position:absolute;right:36px;top:36px;background:var(--yel);color:var(--ink);padding:6px 14px;font-family:var(--mono);font-size:12px;letter-spacing:0.18em;">FIG. 01 / 制御盤</div>
         </div>
-        <div style="padding:24px 36px 0;font-family:var(--jp);font-size:14px;line-height:2.0;column-count:2;column-gap:32px;">
-          下水道関連施設の維持管理を軸に、土木・建設業まで。一級土木施工管理技士、浄化槽管理士、きのこ検定 3級。有限会社 豊田衛生 取締役。三重県亀山市阿野田町。見えにくい現場の段取りが、まちの当たり前を下から支えている。
+        <div style="padding:24px 36px 0;font-family:var(--jp);font-size:14px;line-height:2.0;">
+          下水道関連施設の維持管理を軸に、土木・建設業まで。一級土木施工管理技士、浄化槽管理士、きのこ検定 3級。有限会社 豊田衛生 取締役。<br/>三重県亀山市阿野田町。見えにくい現場の段取りが、まちの当たり前を下から支えている。
         </div>
       </section>
 
-      <!-- §03 LOCAL -->
+      <!-- §03 LOCAL — large image stack -->
       <section style="padding:48px 36px 64px;background:var(--ink);color:var(--ppr);">
-        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;color:var(--yel);margin-bottom:20px;">§ 03 / LOCAL · TAP TO VISIT</div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;color:var(--yel);margin-bottom:24px;">§ 03 / LOCAL · TAP TO VISIT</div>
+        <div style="display:grid;grid-template-columns:1fr;gap:24px;">
 
-          <a class="tap local-card" href="https://www.instagram.com/kameyama_skatepark/" target="_blank" rel="noopener noreferrer" style="color:var(--ink);background:var(--yel);border:4px solid var(--ppr);display:block;">
-            <div style="height:220px;background:var(--ppr);overflow:hidden;">
-              <img src="assets/logo-skatepark.png" alt="SKATEPARK" style="width:100%;height:100%;object-fit:contain;padding:14px;" />
+          <a class="tap local-card" href="https://www.instagram.com/kameyama_skatepark/" target="_blank" rel="noopener noreferrer" style="color:var(--ink);background:var(--yel);border:6px solid var(--ppr);display:block;">
+            <div style="height:560px;background:var(--ppr);overflow:hidden;display:grid;place-items:center;">
+              <img src="assets/logo-skatepark.png" alt="SKATEPARK" style="max-width:78%;max-height:82%;object-fit:contain;" />
             </div>
-            <div style="padding:12px 14px;">
-              <div style="font-family:var(--jp-serif);font-weight:800;font-size:18px;">亀山スケートボードパーク</div>
-              <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;margin-top:4px;display:flex;justify-content:space-between;">
-                <span>SKATEPARK</span><span>↗</span>
+            <div style="padding:22px 28px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-top:4px solid var(--ink);">
+              <div>
+                <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;">PROJECT / 01 · SKATEPARK</div>
+                <div style="font-family:var(--jp-serif);font-weight:800;font-size:36px;line-height:1.2;margin-top:6px;">亀山スケートパークプロジェクト</div>
               </div>
+              <div style="font-family:var(--mono);font-size:28px;">↗</div>
             </div>
           </a>
 
-          <a class="tap local-card" href="https://bizarrejapan.com/" target="_blank" rel="noopener noreferrer" style="color:var(--ppr);background:var(--red);border:4px solid var(--ppr);display:block;">
-            <div style="height:220px;background:var(--ppr);overflow:hidden;">
-              <img src="assets/logo-bizarre.png" alt="BIZARRE" style="width:100%;height:100%;object-fit:contain;padding:14px;" />
+          <a class="tap local-card" href="https://bizarrejapan.com/" target="_blank" rel="noopener noreferrer" style="color:var(--ppr);background:var(--red);border:6px solid var(--ppr);display:block;">
+            <div style="height:560px;background:var(--ppr);overflow:hidden;display:grid;place-items:center;">
+              <img src="assets/logo-bizarre.png" alt="BIZARRE" style="max-width:78%;max-height:82%;object-fit:contain;" />
             </div>
-            <div style="padding:12px 14px;">
-              <div style="font-family:var(--jp-serif);font-weight:800;font-size:18px;">Bizarre Japan</div>
-              <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;margin-top:4px;display:flex;justify-content:space-between;">
-                <span>BIZARRE</span><span>↗</span>
+            <div style="padding:22px 28px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-top:4px solid var(--ink);">
+              <div>
+                <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;">PROJECT / 02 · BIZARRE</div>
+                <div style="font-family:var(--jp-serif);font-weight:800;font-size:36px;line-height:1.2;margin-top:6px;">Bizarre Japan</div>
               </div>
+              <div style="font-family:var(--mono);font-size:28px;">↗</div>
             </div>
           </a>
 
-          <a class="tap local-card" href="https://kameyama-yeg.jp/" target="_blank" rel="noopener noreferrer" style="color:var(--ppr);background:var(--blu);border:4px solid var(--ppr);display:block;">
-            <div style="height:220px;background:#000;overflow:hidden;">
+          <a class="tap local-card" href="https://kameyama-yeg.jp/" target="_blank" rel="noopener noreferrer" style="color:var(--ppr);background:var(--blu);border:6px solid var(--ppr);display:block;">
+            <div style="height:560px;background:#000;overflow:hidden;">
               <img src="assets/photo-hanabi.jpg" alt="HANABI" style="width:100%;height:100%;object-fit:cover;" />
             </div>
-            <div style="padding:12px 14px;">
-              <div style="font-family:var(--jp-serif);font-weight:800;font-size:18px;">関宿納涼花火大会</div>
-              <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;margin-top:4px;display:flex;justify-content:space-between;">
-                <span>HANABI</span><span>↗</span>
+            <div style="padding:22px 28px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-top:4px solid var(--ink);">
+              <div>
+                <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;">PROJECT / 03 · HANABI</div>
+                <div style="font-family:var(--jp-serif);font-weight:800;font-size:36px;line-height:1.2;margin-top:6px;">関宿納涼花火大会</div>
               </div>
+              <div style="font-family:var(--mono);font-size:28px;">↗</div>
             </div>
           </a>
 
         </div>
       </section>
 
-      <!-- §04 INDEX -->
+      <!-- §04 INDEX — 2 columns, raw photos -->
       <section style="background:var(--ppr);padding:48px 36px;">
         <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.2em;margin-bottom:20px;">§ 04 / INDEX</div>
-        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:0;">
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
 
-          <div style="aspect-ratio:1/1;position:relative;overflow:hidden;border-right:2px solid var(--ink);">
-            <img src="assets/photo-cactus.jpg" alt="AGAVE" style="width:100%;height:100%;object-fit:cover;" />
-            <div style="position:absolute;inset:0;background:#3F8E4D;mix-blend-mode:multiply;opacity:0.55;"></div>
-            <div style="position:absolute;left:0;bottom:0;right:0;padding:8px 10px;color:var(--ppr);">
-              <div style="font-family:var(--jp-serif);font-weight:800;font-size:14px;">植物</div>
-              <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.2em;">AGAVE</div>
+          <figure style="margin:0;border:4px solid var(--ink);background:var(--ink);">
+            <div style="aspect-ratio:4/3;overflow:hidden;background:var(--ink);">
+              <img src="assets/photo-cactus.jpg" alt="AGAVE" style="width:100%;height:100%;object-fit:cover;display:block;" />
             </div>
-          </div>
+            <figcaption style="background:var(--ink);color:var(--ppr);padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;">
+              <span style="font-family:var(--jp-serif);font-weight:800;font-size:18px;">植物</span>
+              <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;">AGAVE</span>
+            </figcaption>
+          </figure>
 
-          <div style="aspect-ratio:1/1;position:relative;overflow:hidden;border-right:2px solid var(--ink);">
-            <img src="assets/photo-cats.jpg" alt="CATS" style="width:100%;height:100%;object-fit:cover;" />
-            <div style="position:absolute;inset:0;background:var(--red);mix-blend-mode:multiply;opacity:0.55;"></div>
-            <div style="position:absolute;left:0;bottom:0;right:0;padding:8px 10px;color:var(--ppr);">
-              <div style="font-family:var(--jp-serif);font-weight:800;font-size:14px;">猫</div>
-              <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.2em;">CATS</div>
+          <figure style="margin:0;border:4px solid var(--ink);background:var(--ink);">
+            <div style="aspect-ratio:4/3;overflow:hidden;background:var(--ink);">
+              <img src="assets/photo-cats.jpg" alt="CATS" style="width:100%;height:100%;object-fit:cover;display:block;" />
             </div>
-          </div>
+            <figcaption style="background:var(--red);color:var(--ppr);padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;">
+              <span style="font-family:var(--jp-serif);font-weight:800;font-size:18px;">猫</span>
+              <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;">CATS</span>
+            </figcaption>
+          </figure>
 
-          <div style="aspect-ratio:1/1;position:relative;overflow:hidden;border-right:2px solid var(--ink);">
-            <img src="assets/photo-poker.jpg" alt="POKER" style="width:100%;height:100%;object-fit:cover;" />
-            <div style="position:absolute;inset:0;background:var(--ink);mix-blend-mode:multiply;opacity:0.55;"></div>
-            <div style="position:absolute;left:0;bottom:0;right:0;padding:8px 10px;color:var(--ppr);">
-              <div style="font-family:var(--jp-serif);font-weight:800;font-size:14px;">ポーカー</div>
-              <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.2em;">POKER</div>
+          <figure style="margin:0;border:4px solid var(--ink);background:var(--ink);">
+            <div style="aspect-ratio:4/3;overflow:hidden;background:var(--ink);">
+              <img src="assets/photo-poker.jpg" alt="POKER" style="width:100%;height:100%;object-fit:cover;display:block;" />
             </div>
-          </div>
+            <figcaption style="background:var(--blu);color:var(--ppr);padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;">
+              <span style="font-family:var(--jp-serif);font-weight:800;font-size:18px;">ポーカー</span>
+              <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;">POKER</span>
+            </figcaption>
+          </figure>
 
-          <div style="aspect-ratio:1/1;position:relative;overflow:hidden;border-right:2px solid var(--ink);">
-            <img src="assets/photo-music.jpg" alt="MUSIC" style="width:100%;height:100%;object-fit:cover;" />
-            <div style="position:absolute;inset:0;background:var(--blu);mix-blend-mode:multiply;opacity:0.55;"></div>
-            <div style="position:absolute;left:0;bottom:0;right:0;padding:8px 10px;color:var(--ppr);">
-              <div style="font-family:var(--jp-serif);font-weight:800;font-size:14px;">音楽</div>
-              <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.2em;">MUSIC</div>
+          <figure style="margin:0;border:4px solid var(--ink);background:var(--ink);">
+            <div style="aspect-ratio:4/3;overflow:hidden;background:var(--ink);">
+              <img src="assets/photo-music.jpg" alt="MUSIC" style="width:100%;height:100%;object-fit:cover;display:block;" />
             </div>
-          </div>
+            <figcaption style="background:var(--yel);color:var(--ink);padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;">
+              <span style="font-family:var(--jp-serif);font-weight:800;font-size:18px;">音楽</span>
+              <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;">MUSIC</span>
+            </figcaption>
+          </figure>
 
-          <div style="aspect-ratio:1/1;position:relative;overflow:hidden;border-right:2px solid var(--ink);">
-            <img src="assets/photo-camera.jpg" alt="PHOTO" style="width:100%;height:100%;object-fit:cover;" />
-            <div style="position:absolute;inset:0;background:var(--yel);mix-blend-mode:multiply;opacity:0.55;"></div>
-            <div style="position:absolute;left:0;bottom:0;right:0;padding:8px 10px;color:var(--ink);">
-              <div style="font-family:var(--jp-serif);font-weight:800;font-size:14px;">写真</div>
-              <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.2em;">PHOTO</div>
+          <figure style="margin:0;border:4px solid var(--ink);background:var(--ink);">
+            <div style="aspect-ratio:4/3;overflow:hidden;background:var(--ink);">
+              <img src="assets/photo-camera.jpg" alt="PHOTO" style="width:100%;height:100%;object-fit:cover;display:block;" />
             </div>
-          </div>
+            <figcaption style="background:var(--ink);color:var(--ppr);padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;">
+              <span style="font-family:var(--jp-serif);font-weight:800;font-size:18px;">写真</span>
+              <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;">PHOTO</span>
+            </figcaption>
+          </figure>
 
-          <div style="aspect-ratio:1/1;position:relative;overflow:hidden;">
-            <img src="assets/photo-antique.jpg" alt="ANTIQ" style="width:100%;height:100%;object-fit:cover;" />
-            <div style="position:absolute;inset:0;background:#7A4A2A;mix-blend-mode:multiply;opacity:0.55;"></div>
-            <div style="position:absolute;left:0;bottom:0;right:0;padding:8px 10px;color:var(--ppr);">
-              <div style="font-family:var(--jp-serif);font-weight:800;font-size:14px;">骨董</div>
-              <div style="font-family:var(--mono);font-size:9px;letter-spacing:0.2em;">ANTIQ</div>
+          <figure style="margin:0;border:4px solid var(--ink);background:var(--ink);">
+            <div style="aspect-ratio:4/3;overflow:hidden;background:var(--ink);">
+              <img src="assets/photo-antique.jpg" alt="ANTIQ" style="width:100%;height:100%;object-fit:cover;display:block;" />
             </div>
-          </div>
+            <figcaption style="background:var(--red);color:var(--ppr);padding:10px 14px;display:flex;justify-content:space-between;align-items:baseline;">
+              <span style="font-family:var(--jp-serif);font-weight:800;font-size:18px;">骨董</span>
+              <span style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;">ANTIQ</span>
+            </figcaption>
+          </figure>
 
         </div>
       </section>
@@ -312,7 +325,10 @@
           一滴の水から、<br/>まちを保つ。
         </h2>
         <div style="font-family:var(--mono);font-size:12px;line-height:2.0;margin-bottom:24px;">
-          〒519-0137 三重県亀山市阿野田町 1870 / TEL <a href="tel:0595821738" style="color:inherit;border-bottom:1px solid currentColor;">0595-82-1738</a> / <a href="mailto:m.toyoda@toyodaeisei.com" style="color:inherit;border-bottom:1px solid currentColor;">m.toyoda@toyodaeisei.com</a>
+          〒519-0137<br/>
+          <span style="white-space:nowrap;">三重県亀山市阿野田町 1870</span><br/>
+          TEL <a href="tel:0595821738" style="color:inherit;border-bottom:1px solid currentColor;">0595-82-1738</a><br/>
+          <a href="mailto:m.toyoda@toyodaeisei.com" style="color:inherit;border-bottom:1px solid currentColor;">m.toyoda@toyodaeisei.com</a>
         </div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:4px solid var(--ink);">
 
