@@ -4585,9 +4585,10 @@
   }
   .proj-media {
     position: relative;
-    height: clamp(280px, 46vw, 460px);
+    height: clamp(360px, 56vw, 560px);
     overflow: hidden;
     display: grid; place-items: center;
+    padding: clamp(20px, 3vw, 32px);
     border-bottom: 1px solid var(--rule);
   }
   .proj-media-bg {
@@ -4599,7 +4600,8 @@
 
   .proj-logo {
     position: relative; z-index: 1;
-    max-width: 78%; max-height: 92%;
+    max-width: 100%; max-height: 100%;
+    width: auto; height: auto;
     object-fit: contain;
     opacity: 0;
     transform: translateY(40px) scale(0.94);
